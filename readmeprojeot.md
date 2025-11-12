@@ -14,7 +14,7 @@ O presente trabalho aplica uma metodologia robusta que integra a modelagem de s�
 
 ### Objetivo Geral
 
-Monitorar a série temporal da velocidade média do vento em Brasília (m/s), no período de 2001 a 2018, utilizando o Gráfico de Controle para Valores Individuais ($I$-Chart) aplicado aos resíduos de um modelo SARIMA ajustado.
+Monitorar a série temporal da velocidade média do vento em Brasília (m/s), no período de 2001 a 2018, utilizando o Gráfico de Controle para Valores Individuais aplicado aos resíduos de um modelo SARIMA ajustado.
 
 ### Objetivos Específicos
 
@@ -35,3 +35,15 @@ A modelagem SARIMA prossegue seguindo as três fases clássicas de Box-Jenkins. 
 A \Fase III é a etapa de validação. Os resíduos ($\hat{a}_t$) do modelo ajustado devem necessariamente se comportar como um Ruído Branco Estacionário, o que significa que o modelo extraiu toda a estrutura de dependência da série. O diagnóstico é bifásico: a independência (ausência de autocorrelação) é verificada pelos correlogramas dos resíduos e formalizada pelo Teste de Ljung-Box ($p$-valor $> 0,05$), e a normalidade é verificada pelo histograma, gráfico Q-Q e formalmente pelo Teste de Shapiro-Wilk ($p$-valor $> 0,05$).
 
 Finalmente, o Controle Estatístico de Processo (CEP) é aplicado aos resíduos ($\hat{a}_t$) validados do modelo SARIMA. O Gráfico de Controle para Valores Individuais ($I$-Chart) é construído para monitorar a variabilidade residual do processo, com os limites de controle. O objetivo do CEP é identificar causas especiais (pontos fora dos limites) no processo de erro do modelo, garantindo que o processo residual esteja estatisticamente sob controle para que as previsões sejam válidas e monitoráveis (MOREIRA JUNIOR, 2021).
+
+
+## 4. Resultados
+
+Nesta seção, serão apresentadas e discutidas todas as análises realizadas para avaliar as propriedades e a estrutura de dependência da série temporal da Velocidade Média do Vento. O foco é no pré-tratamento de dados autocorrelacionados por meio da modelagem SARIMA, a validação do ajuste e o monitoramento da variabilidade residual via Controle Estatístico de Processo (CEP). Todas as etapas de análise foram elaboradas utilizando o \textit{software} R Core Team (2018).
+
+Primeiramente, a série temporal bruta é submetida a um diagnóstico inicial. O Gráfico de Controle para Valores Individuais, apresentado na Figura 2, é aplicado à série original.  Nota-se a presença de vários pontos fora dos limites estabelecidos, indicando que o processo está fora de controle estatístico. Esta condição é esperada em séries temporais devido à tendência e à autocorrelação, e justifica a necessidade imediata de pré-tratamento por meio do modelo SARIMA. Ainda, analisando a série, os resultados indicam uma variação significativa, com a velocidade mínima registrada em 0,69 m/s e a máxima alcançando 4,50 m/s. A média da velocidade do vento foi de 2,25 m/s, acompanhada de um desvio-padrão de 0,62 m/s, refletindo uma flutuação considerável nas condições de vento durante o período analisado.
+
+
+O gráfico de controle para valores individuais foi utilizado neste diagnóstico inicial por se tratar de uma série em que cada observação (no caso, a velocidade média mensal) representa uma unidade inspecionada ao longo do tempo.
+
+![Diagrama da Metodologia SARIMA-CEP](./metodologia.png)
