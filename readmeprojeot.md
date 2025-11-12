@@ -4,6 +4,7 @@
 
 <p style="text-align: justify;">
 O monitoramento de fenômenos naturais, como a velocidade do vento, é crucial para diversas aplicações, notadamente na área de energias renováveis e na climatologia. A velocidade do vento em Brasília (Estação 83377), no período de janeiro de 2001 a dezembro de 2018, apresenta flutuações e padrões sazonais bem definidos, com picos nos meses de agosto e setembro.
+</p>
 
 A presença de dependência temporal e sazonalidade na série viola o pressuposto de independência estatística necessário para a aplicação direta de técnicas tradicionais de Controle Estatístico de Processo (CEP), como o Gráfico de Controle para Valores Individuais. O CEP é uma ferramenta vital para garantir que um processo esteja operando sob controle estatístico, diferenciando a variabilidade comum da variabilidade por causas especiais.
 
