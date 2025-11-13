@@ -279,3 +279,5 @@ Para garantir a validade do modelo, os resíduos foram submetidos aos testes de 
 Verificou-se no diagnóstico inicial que os resíduos possuíam três observações fora dos limites de controle (nos índices 10, 77 e 138), as quais foram identificadas como causas especiais. Essas observações foram tratadas e os limites de controle foram recalculados para refletir a variabilidade natural (comum) do processo. Com os novos limites, o processo residual demonstrou estar sob controle estatístico em sua totalidade. 
 
 Portanto, podemos concluir que o processo de erro do modelo está sob controle estatístico, e que o Gráfico de Controle foi essencial para a calibração do monitoramento dos resíduos, garantindo que as previsões futuras sejam baseadas em um processo de erro estável e aleatório.
+
+---
