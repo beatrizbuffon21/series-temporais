@@ -7,13 +7,34 @@ A série diz respeito ao saldo de emprego no estado do Maranhão, com dados mens
 
 ---
 
+Com base em toda a análise estatística de séries temporais que você realizou (volatilidade, ciclos, decomposição, testes de raiz unitária e ajuste do modelo $\text{SARIMA}$), é possível estruturar os objetivos de forma clara e abrangente para o seu trabalho.
+
+Aqui estão sugestões de **Objetivos Gerais e Específicos** que refletem o escopo da sua análise sobre o saldo de emprego no Maranhão:
+
+---
+
+# Objetivos
+
+## Objetivo Geral
+
+Analisar e modelar a série temporal do saldo de emprego no estado do Maranhão ($\text{MA}$) no período de $\text{2008}$ a $\text{2018}$, identificando seus padrões estruturais (tendência e sazonalidade) e construindo um modelo $\text{SARIMA}$ preditivo para fundamentar futuras projeções de mercado de trabalho.
+Com base na sua análise completa de séries temporais, aqui está o resumo dos Objetivos Gerais e Específicos do seu trabalho, em 5 pontos, conforme solicitado:
+
+## Objetivos Específicos
+
+1.  Análise Exploratória e Contextualização: Conduzir a análise exploratória da série, quantificando sua volatilidade e contextualizando o impacto de grandes eventos macroeconômicos (crises de $\text{2008/2009}$ e $\text{2015/2016}$) nas flutuações do saldo de emprego.
+2.  Decomposição e Identificação de Padrões: Realizar a decomposição aditiva da série para isolar e caracterizar as componentes de tendência e sazonalidade, identificando os meses de pico (como Junho a Agosto) e de baixa atividade (como Dezembro).
+3.  Diagnóstico Estatístico da Série: Aplicar testes de raiz unitária ($\text{ADF}$, $\text{KPSS}$) e testes de tendência ($\text{Mann-Kendall}$, $\text{Cox-Stuart}$) para verificar a estacionariedade e a presença de tendência determinística, preparando a série para a modelagem $\text{SARIMA}$.
+4.  Modelagem e Estimação dos Parâmetros: Ajustar o modelo $\text{SARIMA}$ que melhor se adapte à estrutura da série, estimando os parâmetros autorregressivos ($\text{AR}/\text{SAR}$), de médias móveis ($\text{MA}/\text{SMA}$) e os termos de diferença sazonal ($\text{D}$).
+5.  Validação e Projeção: Realizar o diagnóstico dos resíduos do modelo ajustado (via Teste de $\text{Ljung-Box}$ e $\text{QQ-Plot}$) para confirmar a característica de Ruído Branco, e utilizar o modelo validado para gerar previsões futuras do saldo de emprego.
+
+---
+
 ## Análise Exploratória
 
-### Série temporal: Saldo de Emprego – Maranhão
+### **Estatísticas Descritivas**
 
 A tabela a seguir resume as principais estatísticas descritivas da série temporal:
-
-### **Estatísticas Descritivas**
 
 | Estatística                   | Valor     |
 | ----------------------------- | --------- |
@@ -31,7 +52,7 @@ Os resultados indicam uma série temporal com alta volatilidade e comportamento 
 
 ---
 
-## Evolução Temporal
+## Resultados
 
 Com base nas características destacadas sobre a evolução mensal do saldo de emprego no estado do Maranhão entre 2008 e 2018, o comportamento do emprego da Figura 1 pode ser interpretado da seguinte forma:
 
@@ -90,6 +111,8 @@ No entanto, após o lag 13, todos os valores de autocorrelação parcial permane
 Isso indica que não há mais autocorrelação estatisticamente significativa em defasagens mais longas.
 
 ![Função de Autocorrelação Parcial (FACP)](./img/figura4.png)
+
+---
 
 A decomposição aditiva (Figura 5) da série temporal do saldo de emprego no Maranhão (MA) nos permite entender a dinâmica da variável ao longo do tempo, separando-a em suas componentes estruturais.
 
@@ -188,9 +211,9 @@ Com certeza! Vou consolidar todas as informações sobre a Modelagem de Séries 
 
 ---
 
-# Modelagem e Ajuste
+## Modelagem e Ajuste
 
-## Fundamentação Teórica dos Modelos
+### Fundamentação Teórica dos Modelos
 
 A análise da série temporal do saldo de emprego baseia-se na família de modelos $\text{ARMA}$ (AutoRegressive Moving Average),
 que são projetados para prever valores futuros com base em valores passados e erros de previsão passados.
@@ -198,10 +221,6 @@ Para séries estacionárias, utiliza-se o modelo **$\text{ARMA}$**. Quando a sé
 resultando no **$\text{ARIMA}$** (AutoRegressive Integrated Moving Average). Como a série em questão demonstrou sazonalidade significativa
 (padrões que se repetem anualmente), o modelo mais adequado é o **$\text{SARIMA}$** (Seasonal $\text{ARIMA}$), que adiciona componentes cíclicos
 e diferenciação sazonal à estrutura $\text{ARIMA}$.
-
-
-
-## Ajuste e Estimação do Modelo SARIMA
 
 Para a estimação e ajuste dos parâmetros do modelo, foi utilizada a função $\texttt{auto.arima()}$ da biblioteca $\texttt{forecast}$ no $\text{R}$.
 Esta função emprega o robusto algoritmo de Hyndman e Khandakar ($\text{2008}$), que combina testes de raízes unitárias, o procedimento
@@ -214,6 +233,8 @@ O modelo ajustado é notado pela notação $\text{ARIMA}(p,d,q)(P,D,Q)[m]$, onde
 * $\mathbf{P}$ ($\text{SAR}$) e $\mathbf{Q}$ ($\text{SMA}$): Número de parâmetros autorregressivos e de médias móveis sazonais.
 * $\mathbf{D}$: Ordem de integração sazonal.
 * $[\mathbf{m}]$: Ordem sazonal (neste caso, $\text{12}$ meses).
+
+---
 
 ### Parâmetros Estimados
 
@@ -237,7 +258,7 @@ Na Figura 6, os resíduos gerados pelo modelo apresentaram caracteristicas de ru
 
 ---
 
-# Validação e Diagnóstico dos Resíduos do Modelo SARIMA
+### Validação e Diagnóstico dos Resíduos do Modelo SARIMA
 
 Após o ajuste do modelo $\text{SARIMA}$, a análise dos resíduos é fundamental para garantir que o modelo capturou toda a estrutura sistemática da série temporal.
 Os testes a seguir confirmam a adequação do modelo.
