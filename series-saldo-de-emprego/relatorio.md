@@ -14,7 +14,6 @@ Com base em toda a análise estatística de séries temporais que você realizou
 ## Objetivo Geral
 
 Analisar e modelar a série temporal do saldo de emprego no estado do Maranhão ($\text{MA}$) no período de $\text{2008}$ a $\text{2018}$, identificando seus padrões estruturais (tendência e sazonalidade) e construindo um modelo $\text{SARIMA}$ preditivo para fundamentar futuras projeções de mercado de trabalho.
-Com base na sua análise completa de séries temporais, aqui está o resumo dos Objetivos Gerais e Específicos do seu trabalho, em 5 pontos, conforme solicitado:
 
 ## Objetivos Específicos
 
