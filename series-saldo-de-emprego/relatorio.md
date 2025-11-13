@@ -130,7 +130,7 @@ Em conclusão, o modelo de decomposição aditiva foi altamente eficaz em captur
 
 Esta seção resume os resultados dos principais testes estatísticos aplicados à série temporal, avaliando suas propriedades de autocorrelação, variância, distribuição e estacionariedade.
 
-## 4.1. Teste de Ljung-Box para Autocorrelação
+## 4.1 Teste de Ljung-Box para Autocorrelação
 
 Avalia se os resíduos da série temporal apresentam autocorrelação significativa.
 
@@ -141,7 +141,7 @@ Avalia se os resíduos da série temporal apresentam autocorrelação significat
 **Interpretação:**
 Como o $\mathbf{p\text{-valor}}$ é **muito pequeno** ($\text{4.204e-12}$, menor que $\text{0.05}$), a hipótese nula de ausência de autocorrelação é **rejeitada**. Isso confirma que a série temporal **apresenta autocorrelação significativa** e, portanto, **não pode ser considerada ruído branco** (aleatória).
 
-## 4.2. Teste de Heterocedasticidade de White (Breusch-Pagan)
+## 4.2 Teste de Heterocedasticidade de White (Breusch-Pagan)
 
 Avalia se a variância dos resíduos é constante ao longo do tempo (homocedasticidade).
 
@@ -152,7 +152,7 @@ Avalia se a variância dos resíduos é constante ao longo do tempo (homocedasti
 **Interpretação:**
 O $\mathbf{p\text{-valor}}$ ($\text{0.5383}$) é **maior que $\text{0.05}$**. Consequentemente, **não rejeitamos a hipótese nula** de homocedasticidade. Não há evidência estatística de heterocedasticidade, o que sugere que a **variância dos erros pode ser considerada constante** ao longo do tempo.
 
-## 4.3. Teste de Normalidade (Anderson-Darling)
+## 4.3 Teste de Normalidade (Anderson-Darling)
 
 Verifica se os resíduos da série seguem uma distribuição normal.
 
@@ -178,7 +178,7 @@ Avaliam a presença de uma tendência determinística na série temporal.
 **Interpretação:**
 A **maioria dos testes** (Cox-Stuart e Mann-Kendall) aponta para a **presença de tendência** na série temporal (p-valor $< \text{0.05}$). A conclusão consolidada é que a **série possui tendência determinística**.
 
-## 4.5. Testes de Raiz Unitária (Estacionariedade)
+## 4.5 Testes de Raiz Unitária (Estacionariedade)
 
 Verificam se a série é estacionária. (Estacionariedade é essencial para a modelagem $\text{ARIMA}$).
 
@@ -194,7 +194,7 @@ Há uma **contradição** comum nos resultados:
 * $\mathbf{KPSS}$ **rejeita** a hipótese nula, indicando **não estacionariedade**.
 Juntos, esses resultados sugerem que a série **não é estacionária em nível**, mas provavelmente requer diferenciação para se tornar estacionária.
 
-## 4.6. Testes de Sazonalidade
+## 4.6 Testes de Sazonalidade
 
 Avaliam a presença de padrões sazonais que se repetem anualmente.
 
@@ -262,7 +262,7 @@ Na Figura 6, os resíduos gerados pelo modelo apresentaram caracteristicas de ru
 Após o ajuste do modelo $\text{SARIMA}$, a análise dos resíduos é fundamental para garantir que o modelo capturou toda a estrutura sistemática da série temporal.
 Os testes a seguir confirmam a adequação do modelo.
 
-## 6.1. Teste de Independência (Ljung-Box para Resíduos)
+## 6.1 Teste de Independência (Ljung-Box para Resíduos)
 
 Este teste avalia se os resíduos do modelo são não autocorrelacionados.
 
@@ -276,7 +276,7 @@ Este teste avalia se os resíduos do modelo são não autocorrelacionados.
 **Resultado:** Tanto os gráficos de $\text{ACF}$ e $\text{PACF}$ (mencionados implicitamente) quanto o Teste de Ljung-Box confirmam a **independência dos resíduos**.
 Isso indica um bom ajuste do modelo, pois o que sobrou são apenas erros aleatórios.
 
-## 6.2. Teste de Normalidade (Anderson-Darling)
+## 6.2 Teste de Normalidade (Anderson-Darling)
 
 Avalia se os resíduos do modelo seguem uma distribuição normal, o que é uma premissa para a inferência estatística dos parâmetros do modelo.
 
@@ -296,7 +296,7 @@ Embora haja um leve afastamento nas caudas (valores extremos), indicando que a d
 
 ![QQ-Plot](./img/figura7.png)
 
-## 6.3. Teste da Raiz Unitária (Estacionariedade dos Resíduos)
+## 6.3 Teste da Raiz Unitária (Estacionariedade dos Resíduos)
 
 Verifica se os resíduos são estacionários, o que é uma forma de confirmar que não há mais tendência ou autocorrelação estrutural remanescente.
 
