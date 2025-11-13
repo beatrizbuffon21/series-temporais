@@ -202,7 +202,7 @@ O gráfico final da Figura 13 representa o monitoramento definitivo, aplicando o
 
 ![Gráfico de controle com os novos limites (Processo Sob Controle)](./img/figura13.png)
 
-## 2. Conclusão
+## 5. Conclusão
 A série temporal da velocidade média do vento apresentou não estacionariedade, como confirmado pelo Teste de Ljung-Box, indicando a necessidade de modelagem para capturar a forte dependência temporal e sazonal. Aplicou-se o modelo de Suavização Exponencial $\text{ETS}(\text{A},\text{N},\text{A})$, que capturou com sucesso a sazonalidade aditiva e demonstrou ter um ajuste razoável, com o $\text{ACF1}$ dos resíduos próximo de zero, indicando que a estrutura da série foi removida.
 
 Para garantir a validade do modelo, os resíduos foram submetidos aos testes de diagnóstico, confirmando a homocedasticidade e a distribuição normal (conforme o Gráfico Quantil-Quantil). Posteriormente, aplicou-se o Gráfico de Controle para Valores Individuais aos resíduos para verificar o controle estatístico.
