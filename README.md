@@ -13,6 +13,8 @@ O objetivo principal de cada projeto é conduzir o ciclo completo de análise:
 
 ## Estrutura do Repositório
 
+```bash
+
 ├── series-saldo-de-emprego/         # Análise do saldo de emprego no Maranhão
 │   ├── img/                         # Gráficos 
 │   ├── MA.txt                       # Conjunto de dados original
