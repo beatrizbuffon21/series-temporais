@@ -1,19 +1,15 @@
 # Análise do Saldo de Emprego do Maranhão (2007–2017)
 
-## Introdução
+# 1. Introdução
 Este relatório tem como objetivo analisar uma série temporal por meio de uma abordagem estatística completa. Inicialmente, será realizada uma análise descritiva das principais características de cada conjunto de dados. Em seguida, serão ajustados modelos apropriados para a série, com posterior validação dos ajustes realizados. Por fim, será apresentada a etapa de previsão, considerando tanto o horizonte dentro da amostra quanto extrapolações fora da amostra.
 
 A série diz respeito ao saldo de emprego no estado do Maranhão, com dados mensais que refletem a diferença entre admissões e desligamentos formais no mercado de trabalho local. A série cobre o período de janeiro de 2007 a agosto de 2017, contabilizando 128 observações mensais.
 
----
-
 Com base em toda a análise estatística de séries temporais que você realizou (volatilidade, ciclos, decomposição, testes de raiz unitária e ajuste do modelo $\text{SARIMA}$), é possível estruturar os objetivos de forma clara e abrangente para o seu trabalho.
 
-Aqui estão sugestões de **Objetivos Gerais e Específicos** que refletem o escopo da sua análise sobre o saldo de emprego no Maranhão:
-
 ---
 
-# Objetivos
+# 2. Objetivos
 
 ## Objetivo Geral
 
@@ -30,9 +26,9 @@ Com base na sua análise completa de séries temporais, aqui está o resumo dos 
 
 ---
 
-## Análise Exploratória
+# 3. Análise Exploratória e Descritiva
 
-### **Estatísticas Descritivas**
+### 3.1 Estatísticas Descritivas
 
 A tabela a seguir resume as principais estatísticas descritivas da série temporal:
 
@@ -52,7 +48,7 @@ Os resultados indicam uma série temporal com alta volatilidade e comportamento 
 
 ---
 
-## Resultados
+### 3.2 Evolução Temporal e Choques Macroeconômicos
 
 Com base nas características destacadas sobre a evolução mensal do saldo de emprego no estado do Maranhão entre 2008 e 2018, o comportamento do emprego da Figura 1 pode ser interpretado da seguinte forma:
 
@@ -69,12 +65,11 @@ A série temporal é marcada por eventos atípicos que correspondem a grandes ch
 Observa-se um padrão cíclico no saldo de emprego, com ciclos de $\text{3}$ a $\text{4}$ anos de duração, os quais estão fortemente relacionados ao cenário
 macroeconômico nacional e internacional. Essa influência de fatores externos (conjuntura) é mais evidente do que qualquer padrão de sazonalidade interna.
 
-Finalmente, a tendência geral da série é de um comportamento adaptativo a choques econômicos. Não há uma tendência de longo prazo definida, mas sim uma sucessão
-de períodos de queda e recuperação que refletem a reação da economia maranhense às crises e ciclos do país.
-
 ![Série Temporal](./img/figura1.png)
 
 ---
+
+### 3.3 Padrão Sazonal
 
 Com base na análise das médias mensais apresentada na Figura 2, o desempenho, atividade ou receita (dependendo da variável analisada) do Maranhão no período de
 2008 a 2018 apresenta um padrão sazonal bem definido. Os meses de **Junho, Julho e Agosto** se destacam por apresentar os **maiores valores médios**,
@@ -90,6 +85,8 @@ Nesses meses, os valores médios estão mais próximos de zero e, em geral, demo
 ![Médias Mensais](./img/figura2.png)
 
 ---
+
+### 3.4 Funções de Autocorrelação ($\text{FAC}$ e $\text{FACP}$)
 
 A Função de Autocorrelação (FAC) (Figura 3), há autocorrelação significativa positiva em defasagens múltiplas de 12 (ex: 12, 24, 36), o que sugere sazonalidade anual na série.
 A autocorrelação também é significativa em defasagens mais curtas (ex: 1 a 6), indicando dependência temporal de curto prazo. Ainda, os valores que
@@ -114,6 +111,8 @@ Isso indica que não há mais autocorrelação estatisticamente significativa em
 
 ---
 
+### 3.5 Decomposição da Série
+
 A decomposição aditiva (Figura 5) da série temporal do saldo de emprego no Maranhão (MA) nos permite entender a dinâmica da variável ao longo do tempo, separando-a em suas componentes estruturais.
 
 1.  **Dados Observados (*Data*):** Esta é a série original, que capta todas as flutuações e variações do saldo de emprego ao longo do período analisado.
@@ -127,11 +126,11 @@ Em conclusão, o modelo de decomposição aditiva foi altamente eficaz em captur
 
 ---
 
-# Resultados dos Testes Estatísticos 
+# 4. Resultados dos Testes Estatísticos 
 
 Esta seção resume os resultados dos principais testes estatísticos aplicados à série temporal, avaliando suas propriedades de autocorrelação, variância, distribuição e estacionariedade.
 
-## 1. Teste de Ljung-Box para Autocorrelação
+## 4.1. Teste de Ljung-Box para Autocorrelação
 
 Avalia se os resíduos da série temporal apresentam autocorrelação significativa.
 
@@ -142,7 +141,7 @@ Avalia se os resíduos da série temporal apresentam autocorrelação significat
 **Interpretação:**
 Como o $\mathbf{p\text{-valor}}$ é **muito pequeno** ($\text{4.204e-12}$, menor que $\text{0.05}$), a hipótese nula de ausência de autocorrelação é **rejeitada**. Isso confirma que a série temporal **apresenta autocorrelação significativa** e, portanto, **não pode ser considerada ruído branco** (aleatória).
 
-## 2. Teste de Heterocedasticidade de White (Breusch-Pagan)
+## 4.2. Teste de Heterocedasticidade de White (Breusch-Pagan)
 
 Avalia se a variância dos resíduos é constante ao longo do tempo (homocedasticidade).
 
@@ -153,7 +152,7 @@ Avalia se a variância dos resíduos é constante ao longo do tempo (homocedasti
 **Interpretação:**
 O $\mathbf{p\text{-valor}}$ ($\text{0.5383}$) é **maior que $\text{0.05}$**. Consequentemente, **não rejeitamos a hipótese nula** de homocedasticidade. Não há evidência estatística de heterocedasticidade, o que sugere que a **variância dos erros pode ser considerada constante** ao longo do tempo.
 
-## 3. Teste de Normalidade (Anderson-Darling)
+## 4.3. Teste de Normalidade (Anderson-Darling)
 
 Verifica se os resíduos da série seguem uma distribuição normal.
 
@@ -164,7 +163,7 @@ Verifica se os resíduos da série seguem uma distribuição normal.
 **Interpretação:**
 Como o $\mathbf{p\text{-valor}}$ ($\text{0.02683}$) é **menor que $\text{0.05}$**, a hipótese nula de normalidade é **rejeitada**. Conclui-se que a **série não segue uma distribuição normal**.
 
-## 4. Testes de Tendência Determinística
+## 4.4 Testes de Tendência Determinística
 
 Avaliam a presença de uma tendência determinística na série temporal.
 
@@ -179,7 +178,7 @@ Avaliam a presença de uma tendência determinística na série temporal.
 **Interpretação:**
 A **maioria dos testes** (Cox-Stuart e Mann-Kendall) aponta para a **presença de tendência** na série temporal (p-valor $< \text{0.05}$). A conclusão consolidada é que a **série possui tendência determinística**.
 
-## 5. Testes de Raiz Unitária (Estacionariedade)
+## 4.5. Testes de Raiz Unitária (Estacionariedade)
 
 Verificam se a série é estacionária. (Estacionariedade é essencial para a modelagem $\text{ARIMA}$).
 
@@ -195,7 +194,7 @@ Há uma **contradição** comum nos resultados:
 * $\mathbf{KPSS}$ **rejeita** a hipótese nula, indicando **não estacionariedade**.
 Juntos, esses resultados sugerem que a série **não é estacionária em nível**, mas provavelmente requer diferenciação para se tornar estacionária.
 
-## 6. Testes de Sazonalidade
+## 4.6. Testes de Sazonalidade
 
 Avaliam a presença de padrões sazonais que se repetem anualmente.
 
@@ -211,9 +210,9 @@ Com certeza! Vou consolidar todas as informações sobre a Modelagem de Séries 
 
 ---
 
-## Modelagem e Ajuste
+# 5. Modelagem SARIMA
 
-### Fundamentação Teórica dos Modelos
+## 5.1 Fundamentação Teórica dos Modelos
 
 A análise da série temporal do saldo de emprego baseia-se na família de modelos $\text{ARMA}$ (AutoRegressive Moving Average),
 que são projetados para prever valores futuros com base em valores passados e erros de previsão passados.
@@ -236,7 +235,7 @@ O modelo ajustado é notado pela notação $\text{ARIMA}(p,d,q)(P,D,Q)[m]$, onde
 
 ---
 
-### Parâmetros Estimados
+## 5.2 Parâmetros Estimados
 
 O ajuste automático resultou no seguinte conjunto de estimativas para o modelo:
 
@@ -258,12 +257,12 @@ Na Figura 6, os resíduos gerados pelo modelo apresentaram caracteristicas de ru
 
 ---
 
-### Validação e Diagnóstico dos Resíduos do Modelo SARIMA
+# 6. Diagnóstico e Validação do Modelo
 
 Após o ajuste do modelo $\text{SARIMA}$, a análise dos resíduos é fundamental para garantir que o modelo capturou toda a estrutura sistemática da série temporal.
 Os testes a seguir confirmam a adequação do modelo.
 
-## 1. Teste de Independência (Ljung-Box para Resíduos)
+## 6.1. Teste de Independência (Ljung-Box para Resíduos)
 
 Este teste avalia se os resíduos do modelo são não autocorrelacionados.
 
@@ -277,7 +276,7 @@ Este teste avalia se os resíduos do modelo são não autocorrelacionados.
 **Resultado:** Tanto os gráficos de $\text{ACF}$ e $\text{PACF}$ (mencionados implicitamente) quanto o Teste de Ljung-Box confirmam a **independência dos resíduos**.
 Isso indica um bom ajuste do modelo, pois o que sobrou são apenas erros aleatórios.
 
-## 2. Teste de Normalidade (Anderson-Darling)
+## 6.2. Teste de Normalidade (Anderson-Darling)
 
 Avalia se os resíduos do modelo seguem uma distribuição normal, o que é uma premissa para a inferência estatística dos parâmetros do modelo.
 
@@ -297,7 +296,7 @@ Embora haja um leve afastamento nas caudas (valores extremos), indicando que a d
 
 ![QQ-Plot](./img/figura7.png)
 
-## 3. Teste da Raiz Unitária (Estacionariedade dos Resíduos)
+## 6.3. Teste da Raiz Unitária (Estacionariedade dos Resíduos)
 
 Verifica se os resíduos são estacionários, o que é uma forma de confirmar que não há mais tendência ou autocorrelação estrutural remanescente.
 
@@ -311,7 +310,9 @@ Verifica se os resíduos são estacionários, o que é uma forma de confirmar qu
 
 **Resultado:** Os resíduos não apresentam raiz unitária e, portanto, são estacionários. Isso é mais uma evidência de que a diferenciação e os componentes $\text{ARIMA}$ conseguiram remover a não estacionariedade da série original.
 
-## Previsão
+---
+
+# 7. Previsão
 
 Na Figura 8, o modelo prevê que os valores da série continuarão a apresentar sazonalidade, oscilando positivamente e negativamente, como nos anos anteriores.
 O centro da previsão está ligeiramente abaixo de zero (provavelmente influenciado pelo drift negativo estimado), mas ainda dentro da faixa de variação histórica.
@@ -321,5 +322,7 @@ capturar a estrutura da série, já que as previsões seguem o padrão sazonal e
 ![Previsão](./img/figura8.png)
 
 ---
+
+# 8. Conclusão
 
 ---
