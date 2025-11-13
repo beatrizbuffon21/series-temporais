@@ -7,20 +7,23 @@ O objetivo principal de cada projeto é conduzir o ciclo completo de análise:
 1.  Diagnóstico Exploratório: Identificação de tendência, sazonalidade e volatilidade.
 2.  Modelagem: Ajuste do modelo mais adequado para capturar a estrutura de dependência.
 3.  Validação Rigorosa: Verificação dos resíduos para garantir as premissas de Ruído Branco e normalidade.
-4.  *Projeção e Monitoramento: Geração de previsões futuras e monitoramento da variabilidade residual.
+4.  Projeção e Monitoramento: Geração de previsões futuras e monitoramento da variabilidade residual.
 
 ---
 
 ## Estrutura do Repositório
 
-O repositório está organizado por temas de análise:
-
-| Pasta | Conteúdo da Análise | Metodologias Chave |
-| :--- | :--- | :--- |
-| **`series-saldo-de-emprego`** | Saldo de Emprego no Maranhão ($\text{MA}$) | $\text{SARIMA}$ (Validação de Ruído Branco) |
-| **`series-vento`** | Velocidade Média do Vento em Brasília | $\text{ETS}$ + $\text{CEP}$ (Monitoramento de Resíduos) |
-
-Cada pasta contém um relatório detalhado (`relatorio.md`) e o código $\text{R}$ (`codigo.R`) utilizado.
+├── series-saldo-de-emprego/         # Análise do saldo de emprego no Maranhão
+│   ├── img/                         # Gráficos 
+│   ├── MA.txt                       # Conjunto de dados original
+│   ├── codigo.R                     # Script R para a modelagem
+│   └── relatorio.md                 # Relatório detalhado da análise
+├── series-vento/                    # Análise da velocidade média do vento em Brasília
+│   ├── img/                         # Gráficos 
+│   ├── codigo.R                     # Script R para a modelagem 
+│   ├── relatorio.md                 # Relatório detalhado da análise
+│   └── wind-brasilia.txt            # Conjunto de dados original
+└── README.md
 
 ---
 
@@ -41,6 +44,3 @@ A análise da velocidade do vento combinou a modelagem com o monitoramento de qu
 * **Linguagem:** $\text{R}$
 
 ---
-
-
-Gostaria de adicionar alguma seção de contato ou informações sobre as fontes dos dados?
