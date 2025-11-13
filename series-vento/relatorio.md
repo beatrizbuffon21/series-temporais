@@ -39,12 +39,28 @@ Finalmente, o Controle Estatístico de Processo (CEP) é aplicado aos resíduos 
 
 # 4. Análise Exploratória e Descritiva dos Dados
 
-Nesta seção, serão apresentadas e discutidas todas as análises realizadas para avaliar as propriedades e a estrutura de dependência da série temporal da Velocidade Média do Vento. O foco é no pré-tratamento de dados autocorrelacionados por meio da modelagem SARIMA, a validação do ajuste e o monitoramento da variabilidade residual via Controle Estatístico de Processo (CEP). Todas as etapas de análise foram elaboradas utilizando o \textit{software} R Core Team (2018).
+Nesta seção, serão apresentadas e discutidas todas as análises realizadas para avaliar as propriedades e a estrutura de dependência da série temporal da Velocidade Média do Vento. O foco é no pré-tratamento de dados autocorrelacionados por meio da modelagem SARIMA, a validação do ajuste e o monitoramento da variabilidade residual via Controle Estatístico de Processo (CEP). Todas as etapas de análise foram elaboradas utilizando o R Core Team (2018).
 
 ---
 ### 4.1 Estatísticas Descritivas
 
+Com base nas estatísticas descritivas apresentadas para a série temporal da velocidade do vento em Brasília, a distribuição e a variabilidade dos dados podem ser interpretadas da seguinte forma:
+
+| Estatística | Valor | Interpretação |
+| :---: | :---: | :--- |
+| **Número de Observações (n)** | $\text{216}$ | O período analisado compreende $\text{216}$ observações mensais (Janeiro de $\text{2001}$ a Dezembro de $\text{2018}$). |
+| **Média (mean)** | $\mathbf{2.1012}$ m/s | A velocidade média do vento ao longo do período foi de aproximadamente $\text{2,10}$ metros por segundo ($\text{m/s}$). |
+| **Mediana (median)** | $\mathbf{2.0367}$ m/s | O valor central da série é ligeiramente inferior à média, indicando que a distribuição é **quase simétrica**, com uma leve inclinação positiva (cauda para a direita). |
+| **Desvio Padrão (sd)** | $\mathbf{0.6261}$ m/s | O desvio padrão é moderado, sugerindo uma **variabilidade considerável** da velocidade do vento em relação à média, o que é esperado em séries climáticas com sazonalidade. |
+| **Mínimo (min)** | $\mathbf{0.6921}$ m/s | A velocidade mínima registrada foi de $\text{0,69}$ $\text{m/s}$. |
+| **Máximo (max)** | $\mathbf{4.5054}$ m/s | A velocidade máxima registrada foi de $\text{4,51}$ $\text{m/s}$. |
+| **Amplitude (range)** | $\mathbf{3.8133}$ | A diferença entre o vento mais forte e o mais fraco registrado é de $\text{3,81}$ $\text{m/s}$. |
+| **Curtose (kurtosis)** | $\mathbf{1.3033}$ | O valor positivo indica uma distribuição **leptocúrtica** (mais "pontiaguda" e com caudas mais pesadas do que uma distribuição normal), sugerindo a presença de *outliers* ou extremos de velocidade. |
+
+Os dados da velocidade do vento em Brasília demonstram uma média de $\text{2,10}$ $\text{m/s}$ com uma variabilidade moderada ($\text{DP} = \text{0,6261}$ $\text{m/s}$). A distribuição é relativamente simétrica ($\text{Média} \approx \text{Mediana}$), mas a amplitude de $\text{3,8133}$ $\text{m/s}$ e a curtose de $\text{1,3033}$ evidenciam a ocorrência de valores extremos de velocidade ao longo do período, confirmando a necessidade de uma modelagem robusta que capture essas flutuações.
+
 ---
+
 ### 4.2 Gráfico de Controle para Valores Individuais
 
 Primeiramente, a série temporal bruta é submetida a um diagnóstico inicial. O Gráfico de Controle para Valores Individuais, apresentado na Figura 1, é aplicado à série original.  Nota-se a presença de vários pontos fora dos limites estabelecidos, indicando que o processo está fora de controle estatístico. Esta condição é esperada em séries temporais devido à tendência e à autocorrelação, e justifica a necessidade imediata de pré-tratamento por meio do modelo SARIMA. Ainda, analisando a série, os resultados indicam uma variação significativa, com a velocidade mínima registrada em 0,69 m/s e a máxima alcançando 4,50 m/s. A média da velocidade do vento foi de 2,25 m/s, acompanhada de um desvio-padrão de 0,62 m/s, refletindo uma flutuação considerável nas condições de vento durante o período analisado.
