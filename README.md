@@ -15,16 +15,16 @@ O objetivo principal de cada projeto é conduzir o ciclo completo de análise:
 
 ```bash
 
-├── series-saldo-de-emprego/         # Análise do saldo de emprego no Maranhão
-│   ├── img/                         # Gráficos 
-│   ├── MA.txt                       # Conjunto de dados original
-│   ├── codigo.R                     # Script R para a modelagem
-│   └── relatorio.md                 # Relatório detalhado da análise
-├── series-vento/                    # Análise da velocidade média do vento em Brasília
-│   ├── img/                         # Gráficos 
-│   ├── codigo.R                     # Script R para a modelagem 
-│   ├── relatorio.md                 # Relatório detalhado da análise
-│   └── wind-brasilia.txt            # Conjunto de dados original
+├── series-saldo-de-emprego/     # análise do saldo de emprego no Maranhão
+│   ├── img/                           # pasta com as figuras 
+│   ├── MA.txt                       # conjunto de dados original
+│   ├── codigo.R                     # script R para a modelagem
+│   └── relatorio.md                 # relatório detalhado da análise
+├── series-vento/                # análise da velocidade média do vento em Brasília
+│   ├── img/                           # pasta com as figuras 
+│   ├── codigo.R                     # script R para a modelagem 
+│   ├── relatorio.md                 # relatório detalhado da análise
+│   └── wind-brasilia.txt            # conjunto de dados original
 └── README.md
 ```
 
