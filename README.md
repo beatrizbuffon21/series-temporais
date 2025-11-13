@@ -26,6 +26,7 @@ O objetivo principal de cada projeto é conduzir o ciclo completo de análise:
 │   ├── relatorio.md                 # Relatório detalhado da análise
 │   └── wind-brasilia.txt            # Conjunto de dados original
 └── README.md
+```
 
 ---
 
