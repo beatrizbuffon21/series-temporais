@@ -46,4 +46,4 @@ Primeiramente, a série temporal bruta é submetida a um diagnóstico inicial. O
 
 O gráfico de controle para valores individuais foi utilizado neste diagnóstico inicial por se tratar de uma série em que cada observação (no caso, a velocidade média mensal) representa uma unidade inspecionada ao longo do tempo.
 
-![Diagrama da Metodologia SARIMA-CEP](./img/grafico_valores_individuais_antes_do_ajuste.png)
+![Diagrama da Metodologia SARIMA-CEP](./img/figura1.png)
