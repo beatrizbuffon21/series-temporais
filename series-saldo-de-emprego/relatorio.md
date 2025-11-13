@@ -324,4 +324,10 @@ capturar a estrutura da série, já que as previsões seguem o padrão sazonal e
 
 # 8. Conclusão
 
+A série temporal do saldo de emprego no Maranhão, de $\text{2007}$ a $\text{2017}$, apresentou uma estrutura complexa, marcada por alta volatilidade ($\text{DP} = \text{2.800,1}$) e forte sazonalidade (com picos no meio do ano e vales em Dezembro). A análise exploratória confirmou a influência de choques macroeconômicos (Crises de $\text{2008}$ e $\text{2015}$) e a presença de autocorrelação significativa (Teste de $\text{Ljung-Box}$ rejeitado na série original).
+
+Para capturar essa estrutura, foi ajustado um Modelo $\text{SARIMA}$ via $\texttt{auto.arima()}$, que incluiu a diferença sazonal (Diferenciação Sazonal $D=1$) e uma tendência determinística de $\mathbf{-24.3796}$, refletindo uma sutil perda média de emprego por período.
+
+O Teste de $\text{Ljung-Box}$ para os resíduos obteve $\mathbf{p\text{-valor} = \text{0.3824}}$, não rejeitando a hipótese nula e confirmando que os erros são não autocorrelacionados. O $\mathbf{p\text{-valor}}$ do Teste de Anderson-Darling ($\text{0.0987}$) e a inspeção do $\text{QQ-Plot}$ (Figura 7) indicaram uma aproximação razoável à normalidade nos erros. E os testes $\text{ADF}$ e $\text{PP}$ aplicados aos resíduos confirmaram que o modelo extraiu a não-estacionariedade da série original. Assim, o modelo $\text{SARIMA}$ validado é estatisticamente robusto e confiável, tendo isolado toda a estrutura sistemática da série. Ele está apto a gerar previsões futuras que incorporam o padrão sazonal e a tendência histórica, fornecendo uma base sólida para o planejamento do mercado de trabalho.
+
 ---
