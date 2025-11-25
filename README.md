@@ -42,7 +42,7 @@ A análise da velocidade do vento combinou a modelagem com o monitoramento de qu
 
 ---
 
-## Tecnologias Utilizadas
+## Tecnologias utilizadas
 
 * **Linguagem:** $\text{R}$
 
